@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.snap-y {
+    scroll-stop: always; 
+    scroll-padding-top: 0px; 
+}
+
+body {
+  /* background-color: #16181f; */
+  /* background-image: radial-gradient(#21252922 1.5px, transparent 1.5px); */
+  /* background-size: 20px 20px; */
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0, 
+    'opsz' 24;
+}
+
+@font-face {
+    font-family: "Helvetica Custom";
+    src: url("./assets/Helvetica.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Custom";
+    src: url("./assets/helvetica-light-587ebe5a59211.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Custom";
+    src: url("./assets/Helvetica-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Custom";
+    src: url("./assets/Helvetica-Oblique.ttf") format("truetype");
+    font-weight: 400;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: "Helvetica Custom";
+    src: url("./assets/Helvetica-BoldOblique.ttf") format("truetype");
+    font-weight: 700;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: "Helvetica Compressed";
+    src: url("./assets/helvetica-compressed-5871d14b6903a.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Rounded";
+    src: url("./assets/helvetica-rounded-bold-5871d05ead8de.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Stretch Pro";
+    src: url("./assets/StretchPro.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@theme {
+    /* --font-sans: "Inter", system-ui, -apple-system, sans-serif; */
+    /* --font-tight: "Inter Tight", sans-serif; */
+    --font-stretch: "Stretch Pro", system-ui, sans-serif;
+    --font-helvetica: "Helvetica Custom", ui-sans-serif, system-ui, sans-serif;
+    --font-compressed: "Helvetica Compressed", sans-serif;
+    --font-rounded: "Helvetica Rounded", sans-serif;
+    --color-A: #212529;
+    --color-B: #343a40;
+    --color-C: #495057;
+    --color-D: #6c757d;
+    --color-E: #adb5bd;
+    --color-F: #ced4da;
+    --color-G: #dee2e6;
+    --color-H: #e9ecef;
+    --color-I: #f8f9fa;
+
+    --animate-marquee-rtl: marquee-rtl 25s linear infinite;
+    --animate-marquee-ltr: marquee-ltr 25s linear infinite;
+
+    @keyframes marquee-rtl {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-ltr {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
+    }
+}
+
+@keyframes letter-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes tagline-in {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal-bg {
+    0%, 70% {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(-100%);
+        /* opacity: 0; */
+        /* visibility: hidden; */
+    }
+}
+
+.animate-letter-in {
+    transform: translateY(100%);
+    animation: letter-in 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: var(--delay);
+}
+
+.animate-tagline-in {
+    animation: tagline-in 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 800ms;
+}
+
+.animate-reveal-bg {
+    animation: reveal-bg 2.8s cubic-bezier(0.76, 0, 0.24, 1) forwards; 
+}
+
+@keyframes dot-reveal-and-blink {
+    from {
+        transform: translateY(100%);
+        background: white;
+    }
+    to {
+        transform: translateY(0%);
+        background: var(--color-lime-400);
+    }
+}
+
+.animate-dot-reveal-blink {
+    animation: dot-reveal-and-blink 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 800ms;
+    animation-fill-mode: both;
+}
+
+@keyframes word-reveal {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes paragraph-fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Helper Utility Classes */
+.animate-word-in {
+    /* Runs once for 1 second, staying at 100% via 'forwards' */
+    animation: word-reveal 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: var(--word-delay);
+}
+
+.animate-paragraph-in {
+    /* Starts right after the last word "Substance" finishes revealing */
+    animation: paragraph-fade-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 3400ms; 
+}

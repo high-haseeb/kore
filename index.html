@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="high-haseeb" />
+        <meta name="name" content="Kore | Design & Construction" />
+        <meta name="description" content="Kore | Design & Construction" />
+        <title>Kore | Design & Construction</title>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body class="relative w-full h-screen bg-F text-B font-helvetica overflow-y-auto overflow-x-hidden flex flex-col scroll-smooth">
+
+        <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-B text-G select-none pointer-events-none animate-reveal-bg hidden">
+            <div id="logo" class="group tracking-tight font-stretch text-8xl flex relative w-max font-sans">
+                <span class="relative inline-block overflow-hidden">
+                    <span class="inline-block animate-letter-in after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="K" style="--delay: 0ms;">K</span>
+                </span>
+                <span class="relative inline-block overflow-hidden">
+                    <span class="inline-block animate-letter-in after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="O" style="--delay: 150ms;">O</span>
+                </span>
+                <span class="relative inline-block overflow-hidden">
+                    <span class="inline-block animate-letter-in after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="R" style="--delay: 300ms;">R</span>
+                </span>
+                <span class="relative inline-block overflow-hidden">
+                    <span class="inline-block animate-letter-in after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="E" style="--delay: 450ms;">E</span>
+                </span>
+
+                <div class="tracking-normal absolute left-0.5 bottom-2 m-0 p-0 translate-y-full font-sans font-normal text-2xl opacity-0 animate-tagline-in overflow-hidden"> Design & Construction </div>
+                <span class="absolute bottom-2 right-0 translate-x-full translate-y-full overflow-hidden">
+                    <div class="w-6 h-6 bg-G animate-dot-reveal-blink"></div>
+                </span>
+            </div>
+        </div>
+
+        <div id="nav-trigger" class="fixed top-0 left-0 w-full h-24 z-40">
+
+            <div id="navbar" class="grid grid-cols-3 items-start justify-between w-full h-max p-10 text-white bg-gradient-to-b from-black/80 to-transparent transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
+
+                <div id="logo" class="nav-item group tracking-tight font-stretch text-5xl flex relative w-max cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                    <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="K">K</span></span>
+                    <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="O">O</span></span>
+                    <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="R">R</span></span>
+                    <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="E">E</span></span>
+
+                    <div class="tracking-normal absolute left-0.5 bottom-3 translate-y-full font-helvetica font-normal text-sm text-neutral-300">
+                        Design & Construction
+                    </div>
+                    <div class="absolute bottom-2 right-0 translate-x-full translate-y-full w-3 h-3 bg-lime-400"></div>
+                </div>
+
+                <div class="flex gap-8 justify-self-center">
+                    {{> link text="Home" }}
+                    {{> link text="Services" url="#services" }}
+                    {{> link text="About" url="#about" }}
+                </div>
+
+                <div class="flex gap-4 justify-self-end">
+                    <div class="nav-item transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                        <button id="open-menu" class="nav-item flex items-center justify-center cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                            <span class="material-symbols-outlined text-4xl!">
+                                menu
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="sidebar-menu" class="fixed inset-y-0 right-0 w-full sm:w-[450px] h-screen bg-neutral-900 text-white z-50 shadow-2xl flex flex-col justify-between p-10 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" style="will-change: transform;transform: translateX(100%);">
+
+            <div class="flex justify-between items-center w-full">
+                <span class="font-mono text-xs text-neutral-500 tracking-widest">[ MENU_INDEX ]</span>
+
+                <button id="close-menu" class="group flex items-center justify-center cursor-pointer select-none">
+                    <span class="material-symbols-outlined text-4xl! transition-transform duration-300 group-hover:rotate-90 text-neutral-400 group-hover:text-lime-400">
+                        close
+                    </span>
+                </button>
+            </div>
+
+            <nav class="flex flex-col gap-6 my-auto">
+                {{> link text="Overview" url="#hero" active=true }}
+                {{> link text="Mastered Services" url="#services" }}
+                {{> link text="Sustainable Core" url="#green-frameworks" }}
+                {{> link text="Studio Archive" url="#about" }}
+                {{> link text="Initiate Project" url="#contact" }}
+            </nav>
+
+            <div class="flex flex-col gap-2 border-t border-neutral-800 pt-6 font-mono text-[11px] text-neutral-500">
+                <div>KORE STUDIO CO. © 2026</div>
+                <div class="text-lime-400/60">INTEGRATED ECO-ARCHITECTURE</div>
+            </div>
+        </div>
+
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-45 opacity-0 pointer-events-none transition-opacity duration-500 ease-out"></div>
+        <header class="relative w-full h-screen shrink-0 overflow-hidden flex flex-col justify-center items-center">
+            <div class="absolute bottom-25 right-36 w-18 h-18 bg-lime-400 rounded-sm z-20"></div>
+            <div class="z-10 flex flex-col items-center justify-center text-center gap-4 text-white px-6 max-w-5xl">
+                <div class="font-bold tracking-tighter text-7xl/16 max-w-4xl [text-shadow:_0_4px_8px_rgba(0,0,0,0.6)]">
+                    Forming the Core of Modern Spaces.
+                </div>
+                <div class="font-normal text-lg/6 max-w-lg tracking-tight [text-shadow:_0_2px_4px_rgba(0,0,0,0.4)]">
+                    We design and build high-end architecture, interior environments, and physical structures from the ground up.
+                </div>
+                <div class="flex gap-4 mt-8">
+                    {{> stagger-button text="Start a project" }}
+                    {{> stagger-button text="Get Help" light=true }}
+                </div>
+            </div>
+
+            <video muted autoplay loop src="./src/assets/videos/showreel.mp4" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"></video>
+        </header> 
+
+        <div class="p-40 bg-white text-B h-auto z-10 pt-40 flex flex-col gap-16" id="services">
+            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
+
+                <div class="flex gap-32 items-start w-full">
+                    <div class="max-w-lg">Discover Our Services</div>
+                    <div class="text-lg font-normal max-w-md text-B/60">
+                        Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
+                    </div>
+                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
+
+                        <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
+
+                        <div class="relative flex items-center justify-center w-full h-full z-10">
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
+                                arrow_outward
+                            </span>
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
+                                arrow_outward
+                            </span>
+
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+            <div class="flex gap-4 w-full h-[600px] group/gallery">
+                {{> card 
+                    img="./src/assets/images/interior/2.png" title="Architectural Design" 
+                    desc="[ARCH_01] High-end sustainable spatial planning, structural programming, and building envelopes." 
+                }}
+                {{> card
+                    img="./src/assets/images/interior/interior-2.jpeg"
+                    title="Interior Design"
+                    desc="[INT_02] Curation of raw tactile materials, lighting design, and bespoke interior architecture."
+                }}
+                {{> card
+                    img="./src/assets/images/interior/1.png" title="Design Consultation"
+                    desc="[CONS_03] Full-scale engineering, project management, and high-precision execution from foundation to handover."
+                }}
+                {{> card
+                    img="./src/assets/images/1.webp" title="Landscape Design"
+                    desc="[SUST_04] Integration of ecological materials, passive solar principles, and energy-efficient systems."
+                }}
+                {{> card
+                    img="./src/assets/images/4.webp" title="Building Information Modeling"
+                    desc="[LAND_05] Exterior site design mapping physical structures into their natural, native topographies."
+                }}
+            </div>
+        </div>
+
+        <div class="p-20 px-40 bg-H text-B h-auto z-10 pt-20 flex flex-col gap-16" id="about">
+            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
+
+                <div class="flex gap-32 items-start w-full">
+                    <div class="max-w-lg">Residential Services</div>
+                    <div class="text-lg font-normal max-w-md text-B/60">
+                        Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
+                    </div>
+                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
+
+                        <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
+
+                        <div class="relative flex items-center justify-center w-full h-full z-10">
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
+                                arrow_outward
+                            </span>
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
+                                arrow_outward
+                            </span>
+
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="p-20 px-40 bg-white text-B h-auto z-10 pt-20 flex flex-col gap-16" id="about">
+            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
+
+                <div class="flex gap-32 items-start w-full">
+                    <div class="max-w-lg">Commerical Services</div>
+                    <div class="text-lg font-normal max-w-md text-B/60">
+                        Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
+                    </div>
+                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
+
+                        <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
+
+                        <div class="relative flex items-center justify-center w-full h-full z-10">
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
+                                arrow_outward
+                            </span>
+
+                            <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
+                                arrow_outward
+                            </span>
+
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script type="module" src="/src/main.ts" defer></script>
+    </body>
+</html>

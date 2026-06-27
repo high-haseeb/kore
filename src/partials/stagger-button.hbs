@@ -1,0 +1,13 @@
+<button class="group {{#if text}}px-8 gap-2{{else}}px-2{{/if}} py-2 text-base rounded-sm flex items-center justify-center  cursor-pointer outline-1 {{#if light}}bg-F text-A outline-A{{else}}bg-A text-F outline-F{{/if}} {{class}}">
+    <span class="flex">
+        {{#if text}}
+            {{{staggerText text}}}
+        {{/if}}
+    </span>
+
+    {{#if icon}}
+        <span class="material-symbols-outlined text-xl transition-transform duration-300 {{#if text}}group-hover:translate-x-1{{/if}}">
+            {{icon}}
+        </span>
+    {{/if}}
+</button>
