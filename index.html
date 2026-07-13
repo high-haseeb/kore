@@ -37,32 +37,40 @@
             </div>
         </div>
 
-        <div id="nav-trigger" class="fixed top-0 left-0 w-full h-24 z-40">
+        <!-- Navigation -->
+        <div id="nav-trigger" class="fixed top-0 left-0 w-full z-40 transition-transform duration-500">
+            
+            <!-- Modern, Minimalist Container: Clean spacing and a subtle gradient for legibility -->
+            <div id="navbar" class="grid grid-cols-2 md:grid-cols-3 items-center justify-between w-full h-max px-8 py-8 md:px-16 md:py-10 text-white bg-gradient-to-b from-black/60 via-black/20 to-transparent transition-all duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
 
-            <div id="navbar" class="grid grid-cols-3 items-start justify-between w-full h-max p-10 text-white bg-gradient-to-b from-black/80 to-transparent transition-transform duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
-
-                <div id="logo" class="nav-item group tracking-tight font-stretch text-5xl flex relative w-max cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                <!-- Logo -->
+                <div id="logo" class="nav-item group tracking-tight font-stretch text-4xl md:text-5xl flex relative w-max cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                     <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="K">K</span></span>
                     <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="O">O</span></span>
                     <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="R">R</span></span>
                     <span class="relative inline-block overflow-hidden"><span class="inline-block transition-transform duration-300 ease-out group-hover:-translate-y-full after:content-[attr(data-letter)] after:absolute after:top-full after:left-0" data-letter="E">E</span></span>
 
-                    <div class="tracking-normal absolute left-0.5 bottom-3 translate-y-full font-helvetica font-normal text-sm text-neutral-300">
+                    <!-- Elegant Helvetica sub-text -->
+                    <div class="tracking-normal absolute left-0.5 bottom-1.5 translate-y-full font-helvetica font-light text-sm text-white/70">
                         Design & Construction
                     </div>
-                    <div class="absolute bottom-2 right-0 translate-x-full translate-y-full w-3 h-3 bg-lime-400"></div>
+                    <div class="absolute bottom-2 right-0 translate-x-full translate-y-full w-2 h-2 bg-lime-400"></div>
                 </div>
 
-                <div class="flex gap-8 justify-self-center">
-                    {{> link text="Home" }}
+                <!-- Desktop Links (Centered, clean typography) -->
+                <div class="hidden md:flex gap-10 justify-self-center font-helvetica text-sm font-medium text-white/80">
+                    {{> link text="Home" url="#hero" }}
                     {{> link text="Services" url="#services" }}
+                    {{> link text="Portfolio" url="#portfolio" }}
                     {{> link text="About" url="#about" }}
                 </div>
 
-                <div class="flex gap-4 justify-self-end">
+                <!-- Menu Trigger (Minimalist, smooth hover) -->
+                <div class="flex justify-self-end">
                     <div class="nav-item transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                        <button id="open-menu" class="nav-item flex items-center justify-center cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                            <span class="material-symbols-outlined text-4xl!">
+                        <button id="open-menu" class="group flex items-center justify-center gap-3 cursor-pointer bg-transparent text-white/90 hover:text-lime-400 transition-colors duration-300">
+                            <span class="font-helvetica text-sm tracking-wide hidden md:block transition-colors duration-300">Menu</span>
+                            <span class="material-symbols-outlined text-4xl! font-light transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-90">
                                 menu
                             </span>
                         </button>
@@ -73,33 +81,29 @@
         </div>
 
         <div id="sidebar-menu" class="fixed inset-y-0 right-0 w-full sm:w-[450px] h-screen bg-neutral-900 text-white z-50 shadow-2xl flex flex-col justify-between p-10 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" style="will-change: transform;transform: translateX(100%);">
-
             <div class="flex justify-between items-center w-full">
                 <span class="font-mono text-xs text-neutral-500 tracking-widest">[ MENU_INDEX ]</span>
-
                 <button id="close-menu" class="group flex items-center justify-center cursor-pointer select-none">
                     <span class="material-symbols-outlined text-4xl! transition-transform duration-300 group-hover:rotate-90 text-neutral-400 group-hover:text-lime-400">
                         close
                     </span>
                 </button>
             </div>
-
             <nav class="flex flex-col gap-6 my-auto">
                 {{> link text="Overview" url="#hero" active=true }}
                 {{> link text="Mastered Services" url="#services" }}
-                {{> link text="Sustainable Core" url="#green-frameworks" }}
+                {{> link text="Selected Works" url="#portfolio" }}
                 {{> link text="Studio Archive" url="#about" }}
                 {{> link text="Initiate Project" url="#contact" }}
             </nav>
-
             <div class="flex flex-col gap-2 border-t border-neutral-800 pt-6 font-mono text-[11px] text-neutral-500">
                 <div>KORE STUDIO CO. © 2026</div>
                 <div class="text-lime-400/60">INTEGRATED ECO-ARCHITECTURE</div>
             </div>
         </div>
-
         <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-45 opacity-0 pointer-events-none transition-opacity duration-500 ease-out"></div>
-        <header class="relative w-full h-screen shrink-0 overflow-hidden flex flex-col justify-center items-center">
+        
+        <header id="hero" class="relative w-full h-screen shrink-0 overflow-hidden flex flex-col justify-center items-center">
             <div class="absolute bottom-25 right-36 w-18 h-18 bg-lime-400 rounded-sm z-20"></div>
             <div class="z-10 flex flex-col items-center justify-center text-center gap-4 text-white px-6 max-w-5xl">
                 <div class="font-bold tracking-tighter text-7xl/16 max-w-4xl [text-shadow:_0_4px_8px_rgba(0,0,0,0.6)]">
@@ -109,123 +113,234 @@
                     We design and build high-end architecture, interior environments, and physical structures from the ground up.
                 </div>
                 <div class="flex gap-4 mt-8">
-                    {{> stagger-button text="Start a project" }}
-                    {{> stagger-button text="Get Help" light=true }}
+                    <a href="#contact">{{> stagger-button text="Start a project" }}</a>
+                    <a href="#services">{{> stagger-button text="Discover More" light=true }}</a>
                 </div>
             </div>
-
             <video muted autoplay loop src="./src/assets/videos/showreel.mp4" class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"></video>
-        </header> 
+            <div class="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
+        </header>
 
-        <div class="p-40 bg-white text-B h-auto z-10 pt-40 flex flex-col gap-16" id="services">
-            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
-
-                <div class="flex gap-32 items-start w-full">
+        <div class="px-10 md:px-40 py-32 bg-white text-B h-auto z-10 flex flex-col gap-16" id="services">
+            <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight flex flex-col gap-8 w-full">
+                <div class="flex flex-col md:flex-row gap-12 md:gap-32 items-start w-full">
                     <div class="max-w-lg">Discover Our Services</div>
                     <div class="text-lg font-normal max-w-md text-B/60">
                         Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
                     </div>
-                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
-
+                    <button class="md:ml-auto group relative flex items-center justify-center w-[104px] h-[104px] shrink-0 rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
                         <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
-
                         <div class="relative flex items-center justify-center w-full h-full z-10">
-
                             <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
                                 arrow_outward
                             </span>
-
                             <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
                                 arrow_outward
                             </span>
-
                         </div>
                     </button>
                 </div>
-
             </div>
-            <div class="flex gap-4 w-full h-[600px] group/gallery">
-                {{> card 
-                    img="./src/assets/images/interior/2.png" title="Architectural Design" 
-                    desc="[ARCH_01] High-end sustainable spatial planning, structural programming, and building envelopes." 
-                }}
-                {{> card
-                    img="./src/assets/images/interior/interior-2.jpeg"
-                    title="Interior Design"
-                    desc="[INT_02] Curation of raw tactile materials, lighting design, and bespoke interior architecture."
-                }}
-                {{> card
-                    img="./src/assets/images/interior/1.png" title="Design Consultation"
-                    desc="[CONS_03] Full-scale engineering, project management, and high-precision execution from foundation to handover."
-                }}
-                {{> card
-                    img="./src/assets/images/1.webp" title="Landscape Design"
-                    desc="[SUST_04] Integration of ecological materials, passive solar principles, and energy-efficient systems."
-                }}
-                {{> card
-                    img="./src/assets/images/4.webp" title="Building Information Modeling"
-                    desc="[LAND_05] Exterior site design mapping physical structures into their natural, native topographies."
-                }}
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full group/gallery">
+                {{> card img="./src/assets/images/interior/2.png" title="Architectural Design" desc="[ARCH_01] High-end sustainable spatial planning, structural programming, and building envelopes." }}
+                {{> card img="./src/assets/images/interior/interior-2.jpeg" title="Interior Design" desc="[INT_02] Curation of raw tactile materials, lighting design, and bespoke interior architecture." }}
+                {{> card img="./src/assets/images/interior/1.png" title="Design Consultation" desc="[CONS_03] Full-scale engineering, project management, and high-precision execution." }}
+                {{> card img="./src/assets/images/1.webp" title="Landscape Design" desc="[SUST_04] Integration of ecological materials, passive solar principles, and energy-efficient systems." }}
+                {{> card img="./src/assets/images/4.webp" title="BIM Modeling" desc="[LAND_05] Exterior site design mapping physical structures into their natural topographies." }}
+                {{> card img="./src/assets/images/5.webp" title="Urban Planning" desc="[URB_06] Master planning and infrastructural zoning for evolving modern urban ecosystems." }}
             </div>
         </div>
 
-        <div class="p-20 px-40 bg-H text-B h-auto z-10 pt-20 flex flex-col gap-16" id="about">
-            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
-
-                <div class="flex gap-32 items-start w-full">
-                    <div class="max-w-lg">Residential Services</div>
-                    <div class="text-lg font-normal max-w-md text-B/60">
-                        Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
+        <div class="px-10 md:px-40 py-32 bg-H text-B h-auto z-10 flex flex-col gap-16 border-t border-black/10" id="portfolio">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight max-w-lg">Selected Works & Renders</div>
+                <p class="text-lg font-normal max-w-sm text-B/60">A curated collection of our recent architectural and interior achievements.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="relative group overflow-hidden aspect-[4/3] bg-gray-200">
+                    <img src="./src/assets/images/1.webp" alt="Render 1" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                        <div class="font-bold text-2xl">The Vertex Residence</div>
+                        <div class="text-sm text-white/70 font-mono tracking-widest mt-1">RESIDENTIAL / 2025</div>
                     </div>
-                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
-
-                        <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
-
-                        <div class="relative flex items-center justify-center w-full h-full z-10">
-
-                            <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
-                                arrow_outward
-                            </span>
-
-                            <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
-                                arrow_outward
-                            </span>
-
-                        </div>
-                    </button>
                 </div>
-
-            </div>
-        </div>
-        <div class="p-20 px-40 bg-white text-B h-auto z-10 pt-20 flex flex-col gap-16" id="about">
-            <div class="font-helvetica font-bold text-6xl tracking-tight flex flex-col gap-2 w-full">
-
-                <div class="flex gap-32 items-start w-full">
-                    <div class="max-w-lg">Commerical Services</div>
-                    <div class="text-lg font-normal max-w-md text-B/60">
-                        Expert guidance on space planning, materials, and design decisions to help you achieve the best outcome for your project.
+                <div class="relative group overflow-hidden aspect-[4/3] bg-gray-200">
+                    <img src="./src/assets/images/2.webp" alt="Render 2" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                        <div class="font-bold text-2xl">Aura Commercial Plaza</div>
+                        <div class="text-sm text-white/70 font-mono tracking-widest mt-1">COMMERCIAL / 2026</div>
                     </div>
-                    <button class="ml-auto group relative flex items-center justify-center w-[104px] h-[104px] rounded-full border border-B/60 overflow-hidden bg-transparent transition-colors duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer hover:border-lime-400">
-
-                        <div class="absolute inset-0 bg-lime-400 translate-y-[101%] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-y-0"></div>
-
-                        <div class="relative flex items-center justify-center w-full h-full z-10">
-
-                            <span class="material-symbols-outlined absolute text-7xl! text-B rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-[150%] group-hover:-translate-y-[150%] group-hover:scale-50">
-                                arrow_outward
-                            </span>
-
-                            <span class="material-symbols-outlined absolute text-7xl! text-B -translate-x-[150%] translate-y-[150%] scale-50 rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:translate-x-0 group-hover:translate-y-0 group-hover:scale-100 group-hover:rotate-0">
-                                arrow_outward
-                            </span>
-
-                        </div>
-                    </button>
                 </div>
-
+                <div class="relative group overflow-hidden aspect-[4/3] md:col-span-2 bg-gray-200">
+                    <img src="./src/assets/images/3.webp" alt="Render 3" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                        <div class="font-bold text-2xl">Echo Museum Pavilion</div>
+                        <div class="text-sm text-white/70 font-mono tracking-widest mt-1">CULTURAL / 2025</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                {{> stagger-button text="View Full Archive" light=false class="border border-B bg-transparent !text-B hover:bg-B hover:!text-white transition-colors" }}
             </div>
         </div>
 
+        <div class="px-10 md:px-40 py-32 bg-white text-B h-auto z-10 flex flex-col gap-16 border-t border-black/10" id="process">
+            <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight max-w-2xl">
+                Our Engineering Methodology.
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-B/20 pt-16 mt-8">
+                <div class="flex flex-col gap-4 group">
+                    <div class="font-stretch text-4xl text-neutral-300 transition-colors duration-500 group-hover:text-lime-500">01</div>
+                    <div class="font-bold text-xl uppercase tracking-widest">Site Analysis</div>
+                    <p class="text-sm text-B/70 leading-relaxed font-helvetica">Topographical mapping and ecological assessment to root the structure in its native environment.</p>
+                </div>
+                <div class="flex flex-col gap-4 group">
+                    <div class="font-stretch text-4xl text-neutral-300 transition-colors duration-500 group-hover:text-lime-500">02</div>
+                    <div class="font-bold text-xl uppercase tracking-widest">Schematics</div>
+                    <p class="text-sm text-B/70 leading-relaxed font-helvetica">Drafting initial spatial flows, structural programming, and high-fidelity 3D conceptualization.</p>
+                </div>
+                <div class="flex flex-col gap-4 group">
+                    <div class="font-stretch text-4xl text-neutral-300 transition-colors duration-500 group-hover:text-lime-500">03</div>
+                    <div class="font-bold text-xl uppercase tracking-widest">Procurement</div>
+                    <p class="text-sm text-B/70 leading-relaxed font-helvetica">Sourcing raw, tactile, and sustainable materials directly optimized for thermal mass and longevity.</p>
+                </div>
+                <div class="flex flex-col gap-4 group">
+                    <div class="font-stretch text-4xl text-neutral-300 transition-colors duration-500 group-hover:text-lime-500">04</div>
+                    <div class="font-bold text-xl uppercase tracking-widest">Execution</div>
+                    <p class="text-sm text-B/70 leading-relaxed font-helvetica">Precision construction management from the foundation pour to the final architectural handover.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-10 md:px-40 py-32 bg-A text-white h-auto z-10 flex flex-col gap-16" id="green-frameworks">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="w-full md:w-1/2 flex flex-col gap-8">
+                    <div class="font-mono text-lime-400 text-xs tracking-widest uppercase">[ Environmental Integration ]</div>
+                    <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight">Sustainable Core.</div>
+                    <p class="text-lg font-light text-white/70 leading-relaxed">
+                    We employ passive solar principles, high-thermal mass materials, and kinetic energy recovery systems. Every structural footprint is optimized for minimal ecological disruption while maximizing native utility.
+                    </p>
+                    <ul class="flex flex-col gap-4 mt-4 font-mono text-sm text-white/60">
+                        <li class="flex items-center gap-4"><div class="w-2 h-2 bg-lime-400"></div> Net-Zero Energy Targets</li>
+                        <li class="flex items-center gap-4"><div class="w-2 h-2 bg-lime-400"></div> Sourced Tactile Materials</li>
+                        <li class="flex items-center gap-4"><div class="w-2 h-2 bg-lime-400"></div> Advanced HVAC Efficiency</li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 aspect-square bg-white/5 relative overflow-hidden group">
+                    <img src="./src/assets/images/6.png" alt="Sustainable Architecture" class="w-full h-full object-cover grayscale mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700 scale-105 group-hover:scale-100">
+                </div>
+            </div>
+        </div>
+
+        <div class="px-10 md:px-40 py-32 bg-white text-B h-auto z-10 flex flex-col md:flex-row gap-20 items-center" id="about">
+            <div class="w-full md:w-1/2 flex flex-col gap-8">
+                <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight">Built on Precision & Integrity.</div>
+                <div class="text-lg font-normal text-B/70 leading-relaxed max-w-xl">
+                    Kore is a multidisciplinary design and construction studio dedicated to transforming spaces through rigorous engineering and minimalist aesthetics. We bridge the gap between abstract concepts and physical realities, ensuring every material serves a distinct, functional purpose.
+                </div>
+                <div class="grid grid-cols-2 gap-8 mt-6 border-t border-B/10 pt-8">
+                    <div>
+                        <div class="text-4xl font-bold text-lime-500 font-stretch">12+</div>
+                        <div class="text-sm text-B/60 mt-1 uppercase tracking-widest">Years Active</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-lime-500 font-stretch">84</div>
+                        <div class="text-sm text-B/60 mt-1 uppercase tracking-widest">Projects Shipped</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 relative">
+                <div class="absolute -inset-4 bg-lime-400 translate-x-8 translate-y-8 -z-10"></div>
+                <div class="aspect-square bg-gray-300 overflow-hidden">
+                    <img src="./src/assets/images/4.webp" alt="Kore Studio" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+        </div>
+
+        <div class="px-10 md:px-40 py-32 bg-A text-white h-auto z-10 flex flex-col gap-16" id="testimonials">
+            <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight text-center">Client Perspectives</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="p-10 border border-white/20 flex flex-col gap-8 bg-black/20 hover:bg-black/40 transition-colors">
+                    <span class="material-symbols-outlined text-lime-400 text-4xl!">format_quote</span>
+                    <p class="text-lg font-light leading-relaxed text-white/80">"The level of detail Kore brought to our commercial overhaul was unprecedented. They completely redefined our spatial flow."</p>
+                    <div class="mt-auto pt-8 border-t border-white/10">
+                        <div class="font-bold tracking-widest text-sm uppercase">Marcus Lin</div>
+                        <div class="text-xs text-white/50 font-mono mt-1">DIRECTOR, ATLAS TECH</div>
+                    </div>
+                </div>
+                <div class="p-10 border border-white/20 flex flex-col gap-8 bg-black/20 hover:bg-black/40 transition-colors">
+                    <span class="material-symbols-outlined text-lime-400 text-4xl!">format_quote</span>
+                    <p class="text-lg font-light leading-relaxed text-white/80">"Their integration of raw materials and natural lighting turned a basic footprint into an absolute architectural masterpiece."</p>
+                    <div class="mt-auto pt-8 border-t border-white/10">
+                        <div class="font-bold tracking-widest text-sm uppercase">Elena Rostova</div>
+                        <div class="text-xs text-white/50 font-mono mt-1">PRIVATE RESIDENCE</div>
+                    </div>
+                </div>
+                <div class="p-10 border border-white/20 flex flex-col gap-8 bg-black/20 hover:bg-black/40 transition-colors">
+                    <span class="material-symbols-outlined text-lime-400 text-4xl!">format_quote</span>
+                    <p class="text-lg font-light leading-relaxed text-white/80">"From initial 3D renders to the final structural handover, the communication and precision were flawless. Highly recommended."</p>
+                    <div class="mt-auto pt-8 border-t border-white/10">
+                        <div class="font-bold tracking-widest text-sm uppercase">David Chen</div>
+                        <div class="text-xs text-white/50 font-mono mt-1">NEXUS DEVELOPMENTS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-10 md:px-40 py-32 bg-H text-B h-auto z-10 flex flex-col md:flex-row gap-20" id="contact">
+            <div class="w-full md:w-1/2 flex flex-col gap-10">
+                <div class="font-helvetica font-bold text-5xl md:text-6xl tracking-tight">Initiate a Project.</div>
+                <p class="text-lg text-B/70 max-w-md">Ready to build? Reach out to discuss your architectural or interior needs. Our engineering and design team is on standby.</p>
+                <div class="flex flex-col gap-4 mt-4 font-mono text-sm text-B/80">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined">mail</span>
+                        <a href="mailto:hello@korestudio.com" class="hover:text-lime-600 transition-colors">hello@korestudio.com</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined">call</span>
+                        <span>+92 300 0000000</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <span>Design District, Metro Area</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <form class="flex flex-col gap-8 bg-white p-10 shadow-xl">
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-xs text-B/50 uppercase tracking-widest">Full Name</label>
+                        <input type="text" class="w-full bg-transparent border-b border-B/20 py-2 text-B focus:outline-none focus:border-lime-500 transition-colors">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-xs text-B/50 uppercase tracking-widest">Email Address</label>
+                        <input type="email" class="w-full bg-transparent border-b border-B/20 py-2 text-B focus:outline-none focus:border-lime-500 transition-colors">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-xs text-B/50 uppercase tracking-widest">Project Details</label>
+                        <textarea rows="4" class="w-full bg-transparent border-b border-B/20 py-2 text-B focus:outline-none focus:border-lime-500 transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="mt-4 bg-A text-white px-8 py-4 font-bold uppercase tracking-widest text-sm hover:bg-lime-400 hover:text-black transition-colors w-max cursor-pointer">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="px-10 md:px-40 py-12 bg-black text-white flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10">
+            <div class="font-stretch text-3xl tracking-tighter">KORE</div>
+            <div class="flex gap-8 font-mono text-xs text-white/50 uppercase tracking-widest">
+                <a href="#" class="hover:text-lime-400 transition-colors">Instagram</a>
+                <a href="#" class="hover:text-lime-400 transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-lime-400 transition-colors">Twitter</a>
+            </div>
+            <div class="font-mono text-[11px] text-white/30">
+                © 2026 KORE STUDIO CO. ALL RIGHTS RESERVED.
+            </div>
+        </footer>
 
         <script type="module" src="/src/main.ts" defer></script>
     </body>
